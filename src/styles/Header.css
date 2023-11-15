@@ -1,0 +1,10 @@
+.head{
+   
+    position: sticky;
+    color: black;
+    display: flex;
+    text-align:right;
+    justify-content:right;
+    padding-right: 50px;
+
+}
