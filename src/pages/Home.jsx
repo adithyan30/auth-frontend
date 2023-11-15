@@ -6,7 +6,9 @@ const Home = () => {
   return (
     <Container>
       <h1>Welcome to our Website</h1>
+      <br />
       <p>we are here to serve you</p>
+      <br />
       <Button variant="primary" type="submit">
         Get Started
       </Button>
