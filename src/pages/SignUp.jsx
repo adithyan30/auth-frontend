@@ -3,6 +3,8 @@ import { Container, Form, Button } from "react-bootstrap";
 import "../styles/SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import axios from "axios";
+import API_URL from "../../config/global";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -17,9 +19,19 @@ const SignUp = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      const response = await axios.post(`${API_URL}/signin/verify`, formData);
+      console.log(response);
+      if (response.data === true) {
+        alert("registration link send to your  emailID");
+      } else if (response.data === false) {
+        alert("user already exists ");
+      }
+    } catch (e) {
+      console.error("error during registration ", e);
+    }
   };
 
   return (
